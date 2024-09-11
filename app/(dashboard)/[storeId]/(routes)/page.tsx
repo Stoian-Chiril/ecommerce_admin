@@ -1,4 +1,6 @@
 import prismadb from "@/lib/prismadb";
+import { redirect } from "next/navigation";
+
 
 interface DashboardPageProps {
     params: {storeId: string}
@@ -16,6 +18,8 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({params}) => {
             Active Store: {store?.name}
         </div>
     );
+
+    
 }
 
 export default DashboardPage;
