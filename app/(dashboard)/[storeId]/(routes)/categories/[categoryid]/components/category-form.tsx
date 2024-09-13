@@ -138,7 +138,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
                     <div className="grid frid-cols-3 gap-8">
                         <FormField 
                             control={form.control}
-                            name="name" //refers to z.infers, name
+                            name="name" 
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel> 
@@ -155,7 +155,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
                         />
                          <FormField 
                             control={form.control}
-                            name="billboardId" //refers to z.infers, name
+                            name="billboardId" 
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel> 

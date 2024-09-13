@@ -61,6 +61,10 @@ export async function GET(
 ) {
     try {
 
+        if(!params.storeid) {
+            return new NextResponse("Store ID is required", {status: 400});
+        }
+        
         const sizes = await prismadb.size.findMany({
             where: {
                 storeId: params.storeid
