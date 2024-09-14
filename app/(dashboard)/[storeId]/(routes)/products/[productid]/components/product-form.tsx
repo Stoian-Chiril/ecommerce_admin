@@ -163,7 +163,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                         control={form.control}
                         name="images" 
                         render={({field}) => (
-                            <FormItem>
+                            <FormItem> 
                                 <FormLabel> 
                                     Images
                                 </FormLabel>
