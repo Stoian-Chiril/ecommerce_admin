@@ -1,6 +1,5 @@
 "use client";
 
-import { Value } from "@radix-ui/react-select";
 import React from "react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 

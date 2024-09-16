@@ -1,6 +1,5 @@
 import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs/server";
-import { tree } from "next/dist/build/templates/app-page";
 import { NextResponse } from "next/server";
 
 export async function GET (

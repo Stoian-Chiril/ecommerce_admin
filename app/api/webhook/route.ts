@@ -35,6 +35,15 @@ export async function POST(req:Request) {
 
     const addressString = addressComponents.filter((c) => c !== null).join(', ');
 
+    if (event.type === "payment_intent.succeeded") {
+        console.log("Payment intent succeeded event received");
+        // Можете добавить вывод event для полной информации
+        console.log(event);
+    } else {
+        console.log("Unhandled event type:", event.type);
+    }
+    
+
     if(event.type === "checkout.session.completed") {
         const order = await prismadb.order.update({
             where: {
@@ -59,7 +68,8 @@ export async function POST(req:Request) {
                 }
             },
             data: {
-                isArchived: true
+                isArchived: true,
+                isFeatured: false,
             }
         });
     }
