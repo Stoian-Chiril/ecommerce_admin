@@ -66,9 +66,9 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
         try {
             setLoading(true);
             if (initialData) {
-                await axios.patch(`/api/${params.storeId}/billboards/${params.billboardid}`, data);
+                await axios.patch(`/api/stores/${params.storeId}/billboards/${params.billboardid}`, data);
             } else {
-                await axios.post(`/api/${params.storeId}/billboards`, data);
+                await axios.post(`/api/stores/${params.storeId}/billboards`, data);
             }
             //router.refresh(); (это как было в видео)
             router.push(`/${params.storeId}/billboards`)
@@ -84,7 +84,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/billboards/${params.billboardid}`);
+            await axios.delete(`/api/stores/${params.storeId}/billboards/${params.billboardid}`);
             //router.refresh();
             router.push(`/${params.storeId}/billboards`)
             router.refresh();

@@ -97,9 +97,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         try {
             setLoading(true);
             if (initialData) {
-                await axios.patch(`/api/${params.storeId}/products/${params.productid}`, data);
+                await axios.patch(`/api/stores/${params.storeId}/products/${params.productid}`, data);
             } else {
-                await axios.post(`/api/${params.storeId}/products`, data);
+                await axios.post(`/api/stores/${params.storeId}/products`, data);
             }
             router.push(`/${params.storeId}/products`)
             router.refresh(); 
@@ -114,7 +114,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/products/${params.productid}`);
+            await axios.delete(`/api/stores/${params.storeId}/products/${params.productid}`);
             router.push(`/${params.storeId}/products`)
             router.refresh();
             toast.success("Product deleted.")

@@ -37,8 +37,6 @@ export async function POST(req:Request) {
 
     if (event.type === "payment_intent.succeeded") {
         console.log("Payment intent succeeded event received");
-        // Можете добавить вывод event для полной информации
-        console.log(event);
     } else {
         console.log("Unhandled event type:", event.type);
     }

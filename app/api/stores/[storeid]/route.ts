@@ -70,3 +70,20 @@ export async function DELETE (
         return new NextResponse("Internal error", {status: 500});
     }
 }
+
+export async function GET(req: Request, { params }: { params: { storeid: string } }) {
+  try {
+    const store = await prismadb.store.findUnique({
+      where: { id: params.storeid },
+    });
+
+    if (!store) {
+      return new NextResponse("Store not found", { status: 404 });
+    }
+
+    return NextResponse.json(store);
+  } catch (error) {
+    console.error(error);
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
+}

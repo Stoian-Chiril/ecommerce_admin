@@ -33,3 +33,21 @@ export async function POST(
         return new NextResponse("Internal error", {status: 500})
     }
 }
+
+export async function GET(req: Request) {
+    try {
+      const stores = await prismadb.store.findMany({
+        include: {
+            billboards: true,
+            categories: true,
+            sizes: true,
+            colors: true,
+            products: true,
+          },
+      });
+      return NextResponse.json(stores);
+    } catch (error) {
+      console.log('[STORES_GET]', error);
+      return new NextResponse("Internal error", { status: 500 });
+    }
+}
